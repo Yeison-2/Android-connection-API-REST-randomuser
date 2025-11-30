@@ -1,18 +1,26 @@
 package com.zyrdev.simplerest.repository
 
+import androidx.lifecycle.LiveData
 import com.zyrdev.simplerest.datasource.RestDataSource
 import com.zyrdev.simplerest.model.User
+import com.zyrdev.simplerest.model.UserDao
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 interface UserRepository {
     suspend fun getNewUser(): User
+    suspend fun deleteUser(toDelete: User)
+
+    fun getAllUsers(): LiveData<List<User>>
 }
 
 class UserRepositoryImpl @Inject constructor(
-    private val dataSource: RestDataSource
+    private val dataSource: RestDataSource,
+    private val userDao: UserDao
 ) : UserRepository {
 
     override suspend fun getNewUser(): User {
+        delay(5000)
         android.util.Log.d("UserRepository", "Llamando a dataSource.getUser()...")
         val response = dataSource.getUser()
         android.util.Log.d("UserRepository", "Respuesta recibida. Results count: ${response.results.size}")
@@ -34,12 +42,17 @@ class UserRepositoryImpl @Inject constructor(
         val city = location.city ?: throw IllegalStateException("El campo 'city' de la ubicación es nulo")
         
         android.util.Log.d("UserRepository", "Datos extraídos - First: $firstName, Last: $lastName, City: $city")
-        
-        return User(
-            name = firstName,
-            lastName = lastName,
-            city = city,
-            thumbnail = picture.thumbnails
-        )
+
+        val user = User(firstName, lastName, city, picture.thumbnail ?: "")
+        userDao.insert(user)
+        return user
+
+
+
+
     }
+
+    override suspend fun deleteUser(toDelete: User) = userDao.delete(toDelete)
+
+    override fun getAllUsers(): LiveData<List<User>> = userDao.getAll()
 }

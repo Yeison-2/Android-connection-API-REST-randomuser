@@ -52,11 +52,20 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    
-    // Hilt dependencies
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    implementation("com.google.dagger:hilt-android:2.52")
-    kapt("com.google.dagger:hilt-android-compiler:2.52")
+    implementation("androidx.compose.material:material:1.6.8")
+    implementation("com.google.accompanist:accompanist-placeholder-material:0.31.5-beta")
+
+
+    // --- Hilt Dependencies (CORREGIDO) ---
+    // 1. Dependencias principales de Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    implementation(libs.androidx.runtime.livedata) // Usamos una versión estable y consistente
+    kapt("com.google.dagger:hilt-compiler:2.51.1") // CORRECCIÓN: Usar 'hilt-compiler', no 'hilt-android-compiler'
+
+    // 2. Integración de Hilt con Compose ViewModel
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+
 
     // retrofit dependencies y gson
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
