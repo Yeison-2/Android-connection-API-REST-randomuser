@@ -1,6 +1,5 @@
 package com.zyrdev.simplerest.model
 
-import android.media.ThumbnailUtils
 import androidx.lifecycle.LiveData
 import androidx.room.ColumnInfo
 import androidx.room.Dao
@@ -10,7 +9,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
-import androidx.room.Update
 
 @Entity(tableName = "user")
 data class User (
@@ -24,12 +22,12 @@ data class User (
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: User)
+    suspend fun insert(user: User)
 
-    @Query("SELECT * FROM user ORDER BY id DESC LIMIT 1")
+    @Query("SELECT * FROM user ORDER BY id DESC")
     fun getAll(): LiveData<List<User>>
 
     @Delete
-    fun delete(user: User)
+    suspend fun delete(user: User)
 }
 

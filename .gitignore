@@ -1,60 +1,76 @@
-# Gradle & build cache
-.gradle/
-**/build/
-/build/
-
-# Local configuration
-local.properties
-gradle-app.setting
-
-# Android Studio / IntelliJ IDEA
+# ===============================================
+# Android Studio & IntelliJ IDEA
+# ===============================================
 .idea/
 *.iml
-*.ipr
-*.iws
-.DS_Store
+.gradle/
+local.properties
 
-# Android specific
+# ===============================================
+# Gradle & Build
+# ===============================================
+**/build/
+gradle-app.setting
+*.jks
+
+# ===============================================
+# Android Specific
+# ===============================================
+*.apk
+*.ap_
+*.dex
+bin/
+gen/
+out/
+release/
 captures/
+
+# ===============================================
+# External Native Build
+# ===============================================
+cmake-build-*/
 .cxx/
-externalNativeBuild/
 .externalNativeBuild/
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
+
+# ===============================================
+# Keystore Files (Security)
+# ===============================================
 *.keystore
 *.jks
 
-# Kotlin/Jetpack Compose
-*.kts~
-*.kt~
-
-# Generated files
+# ===============================================
+# Logs
+# ===============================================
 *.log
-*.hprof
 
-# Cursor specific
-.cursor/
-.cursordb/
-
-# Misc
-/.fleet/
-/.vscode/
-Thumbs.db
-*.swp
-*.tmp
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+# ===============================================
+# OS Specific
+# ===============================================
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+Thumbs.db
+
+# ===============================================
+# Fastlane
+# ===============================================
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# ===============================================
+# Documentación de IA y Context (NO SUBIR)
+# ===============================================
+**/Context/
+**/Context/**
+AGENTS.md
+PROJECT_STATUS.md
+RESUMEN_FINAL.md
+RESUMEN_COMPLETO.md
+BUILD_GUIDE.md
+DIAGRAMA_PROYECTO.md
+INSTRUCCIONES_FINALES.md
+INSTRUCCIONES_GIT.md
+git-push.ps1
+git-init-and-push.ps1
+push.ps1
+

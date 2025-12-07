@@ -77,9 +77,9 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
-    
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+
+    // Coil para carga de imágenes
+    implementation("io.coil-kt:coil-compose:2.5.0")
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)

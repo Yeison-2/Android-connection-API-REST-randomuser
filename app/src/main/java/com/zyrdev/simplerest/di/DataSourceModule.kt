@@ -68,7 +68,7 @@ class DataSourceModule {
     @Provides
     fun dbDataSource(@ApplicationContext context: Context): DbDataSource {
         return Room.databaseBuilder(context, DbDataSource::class.java, "user_database")
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration(true)
             .build()
     }
 
