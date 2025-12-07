@@ -8,6 +8,11 @@
 
 </div>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/db435f84-1221-4426-a89a-3274803f4f28" alt="Video" />
+</p>
+
+
 ## 📝 Descripción
 
 **SimpleRest** es una aplicación Android moderna desarrollada en **Kotlin** que demuestra las mejores prácticas para consumir APIs REST y gestionar datos locales. La aplicación consume la API pública [RandomUser.me](https://randomuser.me/api/) para obtener perfiles de usuarios aleatorios, los almacena en una base de datos local SQLite utilizando **Room**, y presenta los datos a través de una interfaz de usuario moderna construida con **Jetpack Compose**.
