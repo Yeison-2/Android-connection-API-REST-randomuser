@@ -9,8 +9,13 @@
 </div>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/db435f84-1221-4426-a89a-3274803f4f28" alt="Video" />
+  <img 
+    src="https://github.com/user-attachments/assets/db435f84-1221-4426-a89a-3274803f4f28" 
+    alt="Video"
+    width="200"
+  />
 </p>
+
 
 
 ## 📝 Descripción
